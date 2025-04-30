@@ -9,7 +9,13 @@ Esta práctica está orientada al modelado de un robot en Blender y su integraci
 - **Parte A**: Crear un paquete en ROS2 utilizando Xacro para describir el robot, siguiendo las normativas REP-103 y REP-105.
 - **Parte B**: Utilizar MoveIt y `ros2_control` para controlar el robot y simular la acción de recoger una caja en un entorno simulado.
 
-Dentro del proyecto, se incluyen varios paquetes de ROS2 basados en la distribución `ros2-foxy`.
+Dentro del proyecto, se incluyen varios paquetes de ROS2 basados en la distribución `ros2-jazzy`.
+
+### Data
+
+En la carpeta data se encuentran varios archivos del proyecto:
+1. Tree de los links
+2. Imagen de rviz moviendo los joints del brazo
 
 ### Paquetes del proyecto
 
