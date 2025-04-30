@@ -4,11 +4,26 @@
 
 ## 0. Introducción
 
-Esta práctica trata sobre el modelado de un robot en Blender y su posterior integración en ROS2. Se divide en dos partes:
+Esta práctica está orientada al modelado de un robot en Blender y su integración posterior en ROS2. La práctica se divide en dos partes:
 
-- **Parte A**: Crear un paquete de ROS2 usando Xacro para describir el robot. Siguiendo las normas REP-103 y REP-105.
-- **Parte B**: Utilizar MoveIt y `ros2_control` para mover el robot y hacer que recoja una caja en un escenario simulado. 
+- **Parte A**: Crear un paquete en ROS2 utilizando Xacro para describir el robot, siguiendo las normativas REP-103 y REP-105.
+- **Parte B**: Utilizar MoveIt y `ros2_control` para controlar el robot y simular la acción de recoger una caja en un entorno simulado.
 
+Dentro del proyecto, se incluyen varios paquetes de ROS2 basados en la distribución `ros2-foxy`.
+
+### Paquetes del proyecto
+
+- **robot_description**: Este paquete contiene la descripción del robot, incluyendo sus partes físicas definidas en Xacro, así como los lanzadores necesarios para cargar el robot en Gazebo.
+  
+- **urjc-excavation-world**: Este paquete define el entorno en el que se probará el robot, con un mundo simulado denominado `urjc_excavation_msr`.
+
+### Lanzar el proyecto
+
+Una vez hayas realizado el `colcon build` de ambos paquetes, puedes lanzar el proyecto con el siguiente comando en la terminal:
+
+```bash
+ros2 launch robot_description robot_gazebo.launch.py world_name:=urjc_excavation_msr
+```
 ---
 
 ## Parte A - Generación del URDF con Xacro
@@ -59,7 +74,7 @@ Ejemplo de inclusión y uso del macro en el archivo principal
 ```
 ---
 
-## Posibles problemas:
+### Posibles problemas:
 
 Si al compilar o cargar el robot recibes un error indicando que no se encuentran los `meshes` generados en Blender, las causas más comunes pueden ser las siguientes:
 
