@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="ros2_control" >
+
+   
+  </xacro:macro>
+</robot>

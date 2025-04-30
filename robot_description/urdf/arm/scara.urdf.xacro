@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="scara" params="parent" >
+
+  <joint name="Base_brazo_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.55000 0.00000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="Base_brazo_link"/>
+    </joint>
+
+
+    <joint name="d4_link_joint" type="prismatic">
+      <limit lower="-1.75000" upper="1.75000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 -0.00000 -2.00000"/>
+      <parent link="l2_link"/>
+      <child link="d4_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+
+    <joint name="Cylinder_link_joint" type="fixed">
+      <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 -0.12500 0.00000"/>
+      <parent link="l2_link"/>
+      <child link="Cylinder_link"/>
+    </joint>
+
+    <joint name="l0_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.55000"/>
+      <parent link="Base_brazo_link"/>
+      <child link="l0_link"/>
+    </joint>
+
+    <joint name="l1_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 0.00000 1.17500"/>
+      <parent link="Base_brazo_link"/>
+      <child link="l1_link"/>
+      <axis xyz="-1.00000 0.00000 0.00000"/>
+    </joint>
+
+    <joint name="l2_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="-0.25000 0.00000 -1.45000"/>
+      <parent link="l1_link"/>
+      <child link="l2_link"/>
+      <axis xyz="0.00000 1.00000 0.00000"/>
+    </joint>
+    <joint name="mano_link_joint" type="fixed">
+      <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.11500"/>
+      <parent link="muneca_link"/>
+      <child link="mano_link"/>
+    </joint>
+    <joint name="muneca_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -1.56000"/>
+      <parent link="d4_link"/>
+      <child link="muneca_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+
+
+
+    <link name="Base_brazo_link">
+      <inertial>
+        <inertia ixx="0.00823" ixy="0.00000" ixz="0.00000" iyy="0.00823" iyz="0.00000" izz="0.01562"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="Base_brazo">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="d4_link">
+      <collision name="d4_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.12500" length="3.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.37695" ixy="0.00000" ixz="0.00000" iyy="0.37695" iyz="0.00000" izz="0.00391"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="d4">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.12500" length="3.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="l0_link">
+      <collision name="l0_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.12500" length="1.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.09570" ixy="0.00000" ixz="0.00000" iyy="0.09570" iyz="0.00000" izz="0.00391"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="l0">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.12500" length="1.50000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="l1_link">
+      <collision name="l1_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.75000"/>
+        <geometry>
+          <cylinder radius="0.12500" length="1.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00391" ixy="0.00000" ixz="0.00000" iyy="0.09570" iyz="0.00000" izz="0.09570"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.75000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="l1">
+        <origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 0.00000 -0.75000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.12500" length="1.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="l2_link">
+      <collision name="l2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -1.00000"/>
+        <geometry>
+          <cylinder radius="0.12500" length="2.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16862" ixy="0.00000" ixz="0.00000" iyy="0.00391" iyz="-0.00000" izz="0.16862"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -1.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="l2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -1.00000"/>
+        <material name="CArcasa"/>
+        <geometry>
+          <cylinder radius="0.12500" length="2.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="mano_link">
+      <collision name="mano_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.45000" length="0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.01544" ixy="0.00000" ixz="0.00000" iyy="0.01544" iyz="0.00000" izz="0.03037"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="mano">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.45000" length="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="muneca_link">
+      <collision name="muneca_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00823" ixy="0.00000" ixz="0.00000" iyy="0.00823" iyz="0.00000" izz="0.01562"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="muneca">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Cylinder_link">
+      <collision name="Cylinder_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.12500" length="0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00618" ixy="0.00000" ixz="0.00000" iyy="0.00618" iyz="0.00000" izz="0.00195"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="Cylinder">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.12500" length="0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+</robot>
