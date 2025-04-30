@@ -105,3 +105,73 @@ Si al compilar o cargar el robot recibes un error indicando que no se encuentran
 ```
 
 
+## Parte B - Integración y estudio de dinámicas en Gazebo y ROS2
+
+### Enunciado
+
+En esta fase se realiza el análisis de coste del mecanismo *pick and place* (equivalente a la Fase 3 de la práctica 2) utilizando el simulador Gazebo y el framework MoveIt2. Para ello, se empleará el robot desarrollado en la Parte A de esta práctica.
+
+A partir de los archivos generados en la Parte A, podemos obtener las posiciones de los componentes del brazo robótico y la pinza, lo cual nos permitirá realizar el agarre de la caja. Para manipular estas posiciones, utilizamos los *sliders* del "joint state" en RViz, así como la simulación proporcionada.
+
+El escenario de simulación está basado en el mundo `urjc_excavation_msr`. El robot debe ser posicionado en las coordenadas `(0, 0)` del mundo para poder acercarse a la caja verde ubicada en las coordenadas `(5, 0)`. Una vez en posición, el robot debe agarrar la caja y depositarla en su contenedor.
+
+---
+
+### Sesores en gazebo
+#### Camaras
+Para hacer que las cámaras sean funcionales y se puedan visualizar correctamente en Gazebo, es necesario añadir el siguiente bloque de código al archivo Xacro de las cámaras. Asegúrate de que los nombres coincidan exactamente con las definiciones creadas en la Parte A.
+
+```xml
+  <gazebo reference="Camara_frontal_link">
+    <sensor name="sensor_camera_front" type="camera">
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <topic>/front_camera/image</topic>
+      <camera>
+        <horizontal_fov>1.5708</horizontal_fov>  
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.10</near>
+          <far>15.0</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+        <optical_frame_id>Camara_frontal_link</optical_frame_id>
+      </camera>
+    </sensor>
+  </gazebo>
+```
+
+#### IMU
+Para añadir el sensor IMU al modelo del robot, se debe incluir el siguiente bloque de código en el archivo Xacro. De nuevo, asegúrate de que el nombre coincida con la definición creada previamente en la Parte A.
+
+```xml
+  <gazebo reference="IMU_link">
+    <sensor name="sensor_IMU" type="imu">
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <topic>"imu_data"</topic>
+    </sensor>
+  </gazebo>
+
+```
+
+Además, debes añadir el archivo robot_bridge.yaml, descargado del aula virtual, a la carpeta config. Asegúrate de que el nombre del tema (ros_topic_name) coincida con el especificado en el archivo Xacro. El archivo robot_bridge.yaml debe tener el siguiente formato:
+
+```xml
+
+- ros_topic_name: "imu_data"
+  gz_topic_name: "/imu_data"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
+  lazy: false
+```
+
