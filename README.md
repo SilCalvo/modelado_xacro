@@ -11,11 +11,12 @@ Esta práctica está orientada al modelado de un robot en Blender y su integraci
 
 Dentro del proyecto, se incluyen varios paquetes de ROS2 basados en la distribución `ros2-jazzy`.
 
-### Data
+### Carpeta `data`
 
-En la carpeta data se encuentran varios archivos del proyecto:
-1. Tree de los links
-2. Imagen de rviz moviendo los joints del brazo
+Esta carpeta contiene recursos relevantes para el proyecto:
+
+- [`Tree links`](data/frames_2025-04-30_12.33.07.pdf): Representación jerárquica (tree) de los links del brazo robótico.
+- [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
 
 ### Paquetes del proyecto
 
