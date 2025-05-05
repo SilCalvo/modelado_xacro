@@ -15,7 +15,7 @@ Dentro del proyecto, se incluyen varios paquetes de ROS2 basados en la distribuc
 
 Esta carpeta contiene recursos relevantes para el proyecto:
 
-- [`Tree links`](data/frames_2025-04-30_12.33.07.pdf): Representación jerárquica (tree) de los links del brazo robótico.
+- [`Tree links`](data/frames_2025-05-05_11.22.41.pdf): Representación jerárquica (tree) de los links del brazo robótico.
 - [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
 
 ### Paquetes del proyecto
@@ -180,5 +180,15 @@ Además, debes añadir el archivo robot_bridge.yaml, descargado del aula virtual
   gz_type_name: "gz.msgs.Pose_V"
   direction: GZ_TO_ROS
   lazy: false
+```
+
+### Posibles problemas:
+
+Si al lanzar las camaras no estan apuntando en la direccion correcta se debe a que faltaria un link de conexion, se puede crear uno vacio, de esta manera
+
+
+```xml
+  <link name="optical_frame">
+  </link>
 ```
 
