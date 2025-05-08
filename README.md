@@ -17,19 +17,23 @@ Esta carpeta contiene recursos relevantes para el proyecto:
 
 - [`Tree links`](data/frames_2025-05-05_11.22.41.pdf): Representación jerárquica (tree) de los links del brazo robótico.
 - [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
+- [`Video ParteA`](data/ParteA.mp4): Video de RViz moviendo las distintas articulaciones de las ruedas y del brazo.
+- [`Video ParteB`](data/ParteB.mp4): Video de RViz y Gazebo mostrando el mundo y las imágenes de las cámaras.
 
 ### Paquetes del proyecto
 
-- **robot_description**: Este paquete contiene la descripción del robot, incluyendo sus partes físicas definidas en Xacro, así como los lanzadores necesarios para cargar el robot en Gazebo.
+- **rover_description**: Este paquete contiene la descripción del robot, incluyendo sus partes físicas definidas en Xacro, así como los lanzadores necesarios para cargar el robot en Gazebo.
   
 - **urjc-excavation-world**: Este paquete define el entorno en el que se probará el robot, con un mundo simulado denominado `urjc_excavation_msr`.
 
+- **rover_model_moveit_config**: Este paquete contiene la configuracion de moveit mediante moveit_setup_assistanat.
+
 ### Lanzar el proyecto
 
-Una vez hayas realizado el `colcon build` de ambos paquetes, puedes lanzar el proyecto con el siguiente comando en la terminal:
+Una vez hayas realizado el `colcon build` de ambos paquetes, puedes lanzar el proyecto con el siguiente comando en la terminal: (Esto es hasta gazebo, debido a que la parte B no está entera, se explica más adelante)
 
 ```bash
-ros2 launch robot_description robot_gazebo.launch.py world_name:=urjc_excavation_msr
+ros2 launch robot_description rover_gazebo.launch.py world_name:=urjc_excavation_msr
 ```
 ---
 
@@ -192,3 +196,8 @@ Si al lanzar las camaras no estan apuntando en la direccion correcta se debe a q
   </link>
 ```
 
+### Moveit y gazebo
+
+Para esta práctica usaremos el mundo en gazebo encontrado en el paquete de este repositorio. 
+
+Para moveit usamos el moveit_setup_assistant el cual solo funciona 
