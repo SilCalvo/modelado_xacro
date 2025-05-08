@@ -186,7 +186,7 @@ Además, debes añadir el archivo robot_bridge.yaml, descargado del aula virtual
   lazy: false
 ```
 
-### Posibles problemas:
+#### Posibles problemas:
 
 Si al lanzar las camaras no estan apuntando en la direccion correcta se debe a que faltaria un link de conexion, se puede crear uno vacio, de esta manera
 
@@ -196,8 +196,12 @@ Si al lanzar las camaras no estan apuntando en la direccion correcta se debe a q
   </link>
 ```
 
+---
+
 ### Moveit y gazebo
 
 Para esta práctica usaremos el mundo en gazebo encontrado en el paquete de este repositorio. 
 
-Para moveit usamos el moveit_setup_assistant el cual solo funciona 
+Para moveit usamos el moveit_setup_assistant el cual solo funcionan en algunos ordenadores debido a una dependencia de librerias y paquetes fallidos.
+
+Tras seguir todos los pasos del video para crear el paquete de moveit y los controladores 
