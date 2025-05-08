@@ -18,7 +18,9 @@ Esta carpeta contiene recursos relevantes para el proyecto:
 - [`Tree links`](data/frames_2025-05-05_11.22.41.pdf): Representación jerárquica (tree) de los links del brazo robótico.
 - [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
 - [`Video ParteA`](data/ParteA.mp4): Video de RViz moviendo las distintas articulaciones de las ruedas y del brazo.
-- [`Video ParteB`](data/ParteB.mp4): Video de RViz y Gazebo mostrando el mundo y las imágenes de las cámaras.
+- [`Video ParteB sin controladores`](data/ParteB.mp4): Video de RViz y Gazebo mostrando el mundo y las imágenes de las cámaras.
+
+- [`Video ParteB con controladores`](data/Scara1.mp4): Video de RViz y Gazebo mostrando el mundo moviendo el brazo en un intento de coger la caja ( no va las ruedas)
 
 ### Paquetes del proyecto
 
@@ -34,6 +36,10 @@ Una vez hayas realizado el `colcon build` de ambos paquetes, puedes lanzar el pr
 
 ```bash
 ros2 launch robot_description rover_gazebo.launch.py world_name:=urjc_excavation_msr
+
+ros2 launch rover_model_moveit_config move_group.launch.py
+
+ros2 launch rover_model_moveit_config move_group.launch.py
 ```
 ---
 

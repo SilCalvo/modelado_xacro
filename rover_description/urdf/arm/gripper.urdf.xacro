@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+  <xacro:macro name="gripper"  params="parent" >
+
+    <joint name="pinza1_link_joint" type="prismatic">
+      <limit lower="0.00000" upper="0.10000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.35000 -0.25000"/>
+      <parent link="${parent}"/>
+      <child link="pinza1_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+    <joint name="pinza2_link_joint" type="prismatic">
+      <limit lower="0.00000" upper="0.10000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 0.35000 -0.25000"/>
+      <parent link="${parent}"/>
+      <child link="pinza2_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+
+
+    <link name="pinza1_link">
+      <collision name="pinza1_collision">
+        <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <box size="0.30000 0.05000 0.40000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00339" ixy="0.00000" ixz="0.00000" iyy="0.00521" iyz="0.00000" izz="0.00193"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="pinza1">
+        <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <box size="0.30000 0.05000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="pinza2_link">
+      <collision name="pinza2_collision">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <box size="0.30000 0.05000 0.40000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00339" ixy="0.00000" ixz="0.00000" iyy="0.00521" iyz="0.00000" izz="0.00193"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="pinza2">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Barras"/>
+        <geometry>
+          <box size="0.30000 0.05000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+</robot>

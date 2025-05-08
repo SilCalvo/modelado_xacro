@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="sensor_camera_gripper"  params="parent">
+
+   <joint name="Sensor_link_joint" type="fixed">
+    <origin rpy="-3.14159 -0.00000 -3.14159" xyz="0.50000 0.00000 0.00000"/>
+    <parent link="${parent}"/> 
+    <child link="Sensor_link"/>
+  </joint>
+
+
+  <link name="Sensor_link">
+    <visual name="Sensor">
+      <origin rpy="3.14159 -1.57080 3.14159" xyz="-0.00000 0.00000 0.00000"/>
+      <material name="Ruedas"/>
+      <geometry>
+        <box size="0.10000 0.30000 0.20000"/>
+      </geometry>
+    </visual>
+  </link>
+
+   <joint name="optical_frame_joint_sensor" type="fixed">
+      <origin rpy="-0.00000 -1.57080 0.00000" xyz="0.0 0.00000 0.0000"/>
+      <parent link="Sensor_link"/> 
+      <child link="optical_frame_sensor"/>
+    </joint>
+
+
+  <link name="optical_frame_sensor">
+  </link>
+
+
+  <gazebo reference="optical_frame_sensor">
+    <sensor name="sensor_camera_gripper" type="camera">
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <topic>/arm_camera/image</topic>
+      <camera>
+        <horizontal_fov>1.5708</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.10</near>
+          <far>15.0</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+        <optical_frame_id>optical_frame_sensor</optical_frame_id>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  </xacro:macro>
+</robot>

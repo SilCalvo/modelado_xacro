@@ -1,3 +1,0 @@
-Instantiated with filepath=None->None, scale=[0.30000001192092896, 0.30000001192092896, 0.5], mesh=<bpy_struct, Mesh("Torus.005") at 0x752019c2b008>, meshname=Torus.005, material=None, mesh_orientation=None, {}
-->trying export of <bpy_struct, Mesh("Torus.005") at 0x752019c2b008> to /home/alumnos/silviacc/3Tercero/modelado/blender/practica3/unnamed/meshes/dae/Torus.005.dae
-->wrote dae to /home/alumnos/silviacc/3Tercero/modelado/blender/practica3/unnamed/meshes/dae/Torus.005.dae from bpy_types.Mesh

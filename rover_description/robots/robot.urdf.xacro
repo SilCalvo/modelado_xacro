@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- includes -->
+    <xacro:include filename="$(find rover_description)/urdf/base/robot_base.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/wheels/rover_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/arm/scara.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/arm/gripper.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/ros2_control.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/utils/utils.urdf.xacro"/>
+
+    <xacro:include filename="$(find rover_description)/urdf/sensors/camera.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/sensors/imu_sensor.urdf.xacro"/>
+    <xacro:include filename="$(find rover_description)/urdf/sensors/sensors.urdf.xacro"/>
+
+    <!-- Robot Parts -->
+
+    <xacro:utils/>
+    <!-- Base -->
+    <xacro:robot_base/>
+    <!-- Wheels -->
+    <xacro:rover_wheel parent="Base_link"/>
+
+    <!-- Arm -->
+    <xacro:scara parent="Base_link"/>
+    <xacro:gripper parent="mano_link"/>
+
+    <!-- sensores -->
+    <xacro:sensor_camera_front parent="Base_link"/>
+    <xacro:sensor_camera_gripper parent="mano_link"/>
+    <xacro:sensor_IMU parent="mano_link"/>
+
+    <!-- Gazebo ROS control plugins -->
+
+    <!--<xacro:arg name="config_controllers" default="$(find gz_ros2_control_demos)/config/diff_drive_controller.yaml"/>-->
+    <xacro:include filename="$(find rover_description)/urdf/ros2_control.urdf.xacro"/>
+    <xacro:arg name="config_controllers" default="$(find rover_description)/config/config.yaml"/>
+    <xacro:arg name="update_rate" default="100"/>
+    
+    <xacro:ros2_control/>
+   
+</robot>

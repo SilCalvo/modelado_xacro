@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="utils" >
+
+   
+    <material name="Barras">
+      <color rgba="0.94902 0.94902 0.94902 1.00000"/>
+    </material>
+    <material name="CArcasa">
+      <color rgba="0.07843 0.58039 0.80000 1.00000"/>
+    </material>
+    <material name="LLantas">
+      <color rgba="0.94902 0.94902 0.94902 1.00000"/>
+    </material>
+    <material name="Ruedas">
+      <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+    </material>
+    <material name="Tapas">
+      <color rgba="0.07843 0.49412 0.80000 1.00000"/>
+    </material>
+
+  </xacro:macro>
+</robot>

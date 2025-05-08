@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="robot_base" >
+
+    <joint name="Base_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.00000"/>
+      <parent link="base_footprint"/>
+      <child link="Base_link"/>
+    </joint>
+    <joint name="Cabeza_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.45000 0.00000 0.96000"/>
+      <parent link="Base_link"/>
+      <child link="Cabeza_link"/>
+    </joint>
+    <joint name="Cara_link_joint" type="fixed">
+      <origin rpy="0.00000 1.04720 0.00000" xyz="1.00000 0.00000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="Cara_link"/>
+    </joint>
+    <joint name="Cuello_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.75000 0.00000 0.67000"/>
+      <parent link="Base_link"/>
+      <child link="Cuello_link"/>
+    </joint>
+    
+    <joint name="Iris2_link_joint" type="fixed">
+      <origin rpy="0.00000 1.04720 0.00000" xyz="1.00000 -0.30000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="Iris2_link"/>
+    </joint>
+    <joint name="Ojo1_link_joint" type="fixed">
+      <origin rpy="1.57080 1.04720 -0.00000" xyz="1.00000 -0.30000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="Ojo1_link"/>
+    </joint>
+    <joint name="Ojo2_link_joint" type="fixed">
+      <origin rpy="1.57080 1.04720 -0.00000" xyz="1.00000 0.30000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="Ojo2_link"/>
+    </joint>
+    <joint name="Rueda1_conexion_link_joint" type="fixed">
+      <origin rpy="0.26180 0.00000 0.00000" xyz="0.00000 0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda1_conexion_link"/>
+    </joint>
+  
+    <joint name="Rueda2_conexion_link_joint" type="fixed">
+      <origin rpy="-0.26180 0.00000 0.00000" xyz="0.00000 -0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda2_conexion_link"/>
+    </joint>
+  
+    <joint name="Rueda3_conexion_link_joint" type="fixed">
+      <origin rpy="-0.26180 -0.26180 -0.00000" xyz="1.00000 -0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda3_conexion_link"/>
+    </joint>
+    
+    <joint name="Rueda4_conexion_link_joint" type="fixed">
+      <origin rpy="0.26180 -0.26180 0.00000" xyz="1.00000 0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda4_conexion_link"/>
+    </joint>
+  
+    <joint name="Rueda5_conexion_link_joint" type="fixed">
+      <origin rpy="0.26180 0.26180 -0.00000" xyz="-1.00000 0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda5_conexion_link"/>
+    </joint>
+  
+    <joint name="Rueda6_conexion_link_joint" type="fixed">
+      <origin rpy="-0.26180 0.26180 0.00000" xyz="-1.00000 -0.45000 -0.50000"/>
+      <parent link="Base_link"/>
+      <child link="Rueda6_conexion_link"/>
+    </joint>
+  
+    <joint name="Tapa1_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.75000 0.57500 0.67000"/>
+      <parent link="Base_link"/>
+      <child link="Tapa1_link"/>
+    </joint>
+    <joint name="Tapa2_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.75000 -0.57500 0.67000"/>
+      <parent link="Base_link"/>
+      <child link="Tapa2_link"/>
+    </joint>
+    <joint name="Tapa3_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-1.45000 0.00000 0.67000"/>
+      <parent link="Base_link"/>
+      <child link="Tapa3_link"/>
+    </joint>
+    
+    <joint name="iris1_link_joint" type="fixed">
+      <origin rpy="0.00000 1.04720 0.00000" xyz="1.00000 0.30000 1.00000"/>
+      <parent link="Base_link"/>
+      <child link="iris1_link"/>
+    </joint>
+    
+
+    
+    <link name="Base_link">
+      <collision name="Base_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+        <geometry>
+          <box size="3.00000 1.25000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="1.96563" ixy="0.00000" ixz="0.00000" iyy="11.26250" iyz="0.00000" izz="13.20312"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+        <mass value="15.00000"/>
+      </inertial>
+      <visual name="Base">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+        <material name="CArcasa"/>
+        <geometry>
+          <box size="3.00000 1.25000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cabeza_link">
+      <collision name="Cabeza_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.37500 0.00000 -0.38500"/>
+        <geometry>
+          <box size="1.35000 1.25000 0.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.30208" ixy="0.00000" ixz="0.00000" iyy="0.17667" iyz="0.00000" izz="0.39542"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.26000"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Cabeza">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.10000 0.00000 -0.26000"/>
+        <material name="CArcasa"/>
+        <geometry>
+          <box size="0.80000 1.25000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cara_link">
+      <collision name="Cara_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 0.00000 -0.03840"/>
+        <geometry>
+          <box size="0.50000 1.25000 0.00000"/>
+        </geometry>
+      </collision>
+      <visual name="Cara">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 0.00000 -0.03840"/>
+        <material name="CArcasa"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Plane.dae" scale="0.25000 0.62500 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cuello_link">
+      <collision name="Cuello_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.07500 0.00000 -0.25000"/>
+        <geometry>
+          <box size="1.35000 1.25000 0.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.13542" ixy="0.00000" ixz="0.00000" iyy="0.19271" iyz="0.00000" izz="0.31771"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="Cuello">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.07500 0.00000 -0.25000"/>
+        <material name="CArcasa"/>
+        <geometry>
+          <box size="1.35000 1.25000 0.25000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Iris2_link">
+      <inertial>
+        <inertia ixx="0.00013" ixy="0.00000" ixz="0.00003" iyy="0.00008" iyz="0.00000" izz="0.00010"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.21651 0.00000 -0.12500"/>
+        <mass value="0.05000"/>
+      </inertial>
+      <visual name="Iris2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 0.00000 -0.03840"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <cylinder radius="0.07500" length="0.05000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Ojo1_link">
+      <inertial>
+        <inertia ixx="0.00034" ixy="-0.00000" ixz="0.00016" iyy="0.00039" iyz="0.00000" izz="0.00015"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.21651 -0.12500 0.00000"/>
+        <mass value="0.05000"/>
+      </inertial>
+      <visual name="Ojo1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 -0.03840 -0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.007.dae" scale="0.14000 0.02000 0.30000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Ojo2_link">
+      <inertial>
+        <inertia ixx="0.00034" ixy="-0.00000" ixz="0.00016" iyy="0.00039" iyz="0.00000" izz="0.00015"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.21651 -0.12500 0.00000"/>
+        <mass value="0.05000"/>
+      </inertial>
+      <visual name="Ojo2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 -0.03840 -0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.008.dae" scale="0.14000 0.02000 0.30000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Rueda1_conexion_link">
+      <collision name="Rueda1_conexion_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.02588 0.09659"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="0.00000" ixz="0.00000" iyy="0.16293" iyz="0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda1_conexion">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+
+    <link name="Rueda2_conexion_link">
+      <collision name="Rueda2_conexion_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.02588 0.09659"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="0.00000" ixz="0.00000" iyy="0.16293" iyz="-0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda2_conexion">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="Rueda3_conexion_link">
+      <collision name="Rueda3_conexion_collision">
+        <origin rpy="-0.00000 -0.00000 -0.00000" xyz="0.02588 -0.02500 0.09330"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="0.00000" ixz="0.00000" iyy="0.16293" iyz="-0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda3_conexion">
+        <origin rpy="-0.00000 0.00000 -0.00000" xyz="-0.00000 -0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="Rueda4_conexion_link">
+      <collision name="Rueda4_conexion_collision">
+        <origin rpy="0.00000 -0.00000 -0.00000" xyz="0.02588 0.02500 0.09330"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="-0.00000" ixz="-0.00000" iyy="0.16293" iyz="0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda4_conexion">
+        <origin rpy="-0.00000 -0.00000 -0.00000" xyz="-0.00000 0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+  
+
+    <link name="Rueda5_conexion_link">
+      <collision name="Rueda5_conexion_collision">
+        <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.02588 0.02500 0.09330"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="0.00000" ixz="-0.00000" iyy="0.16293" iyz="0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda5_conexion">
+        <origin rpy="0.00000 -0.00000 -0.00000" xyz="0.00000 0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="Rueda6_conexion_link">
+      <collision name="Rueda6_conexion_collision">
+        <origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.02605 0.14772"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.16792" ixy="-0.00000" ixz="-0.00000" iyy="0.16293" iyz="-0.02829" izz="0.00749"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.05209 0.29544"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Rueda6_conexion">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.05209 0.29544"/>
+        <material name="Barras"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="Tapa1_link">
+      <collision name="Tapa1_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.10000 0.00000 -0.25000"/>
+        <geometry>
+          <box size="1.50000 0.10000 0.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00151" ixy="0.00000" ixz="0.00000" iyy="0.04818" iyz="0.00000" izz="0.04708"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="Tapa1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.10000 0.00000 -0.25000"/>
+        <material name="Tapas"/>
+        <geometry>
+          <box size="1.60000 0.10000 0.25000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Tapa2_link">
+      <collision name="Tapa2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.10000 0.00000 -0.25000"/>
+        <geometry>
+          <box size="1.60000 0.10000 0.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00151" ixy="0.00000" ixz="0.00000" iyy="0.04818" iyz="0.00000" izz="0.04708"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="Tapa2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.10000 0.00000 -0.25000"/>
+        <material name="Tapas"/>
+        <geometry>
+          <box size="1.65000 0.10000 0.25000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Tapa3_link">
+      <collision name="Tapa3_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <geometry>
+          <box size="0.10000 1.25000 0.25000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.03385" ixy="0.00000" ixz="0.00000" iyy="0.00151" iyz="0.00000" izz="0.03276"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <mass value="0.25000"/>
+      </inertial>
+      <visual name="Tapa3">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.25000"/>
+        <material name="Tapas"/>
+        <geometry>
+          <box size="0.10000 1.25000 0.25000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="base_footprint"/>
+    
+    <link name="iris1_link">
+      <inertial>
+        <inertia ixx="0.00013" ixy="0.00000" ixz="0.00003" iyy="0.00008" iyz="0.00000" izz="0.00010"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.21651 0.00000 -0.12500"/>
+        <mass value="0.05000"/>
+      </inertial>
+      <visual name="iris1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26651 0.00000 -0.03840"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <cylinder radius="0.07500" length="0.05000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="rover_wheel"  params="parent">
+
+    <joint name="Rueda1_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+      <parent link="Rueda1_llanta_link"/>
+      <child link="Rueda1_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmision name="rueda1_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda1_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda1_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+      
+
+    <joint name="Rueda1_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda1_llanta_link"/>
+    </joint>
+
+    <joint name="Rueda2_link_joint" type="revolute">
+      <limit lower="0.00000" upper="0.00000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+      <parent link="Rueda2_llanta_link"/>
+      <child link="Rueda2_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+
+    <transmision name="rueda2_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda2_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda2_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+
+
+    <joint name="Rueda2_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda2_llanta_link"/>
+    </joint>
+
+    <joint name="Rueda3_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+      <parent link="Rueda3_llanta_link"/>
+      <child link="Rueda3_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmision name="rueda3_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda3_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda3_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+
+    <joint name="Rueda3_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="1.00000 -0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda3_llanta_link"/>
+    </joint>
+
+    <joint name="Rueda4_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+      <parent link="Rueda4_llanta_link"/>
+      <child link="Rueda4_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmision name="rueda4_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda4_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda4_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+
+      
+    <joint name="Rueda4_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="1.00000 0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda4_llanta_link"/>
+    </joint>
+
+    <joint name="Rueda5_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+      <parent link="Rueda5_llanta_link"/>
+      <child link="Rueda5_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmision name="rueda5_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda5_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda5_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+
+
+    <joint name="Rueda5_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="-1.00000 0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda5_llanta_link"/>
+    </joint>
+
+    <joint name="Rueda6_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.25000"/>
+      <parent link="Rueda6_llanta_link"/>
+      <child link="Rueda6_link"/>
+      <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmision name="rueda6_trans">
+      <type>transmision_interfaces/SimpleTransmission</type>
+      <joint name="Rueda6_link_joint">
+        <hardwareInterface> hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name ="Rueda6_link_joint_motor">
+        <mechanichalReduction>1</mechanichalReduction>
+      </actuator>
+    </transmision>
+
+    <joint name="Rueda6_llanta_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="-1.00000 -0.75000 -0.75000"/>
+      <parent link="${parent}"/>
+      <child link="Rueda6_llanta_link"/>
+    </joint>
+
+
+
+
+    <link name="Rueda1_link">
+      <collision name="Rueda1_collision.000">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.001.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.001.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Rueda1_llanta_link">
+      <collision name="Rueda1_llanta_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda1_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+
+    <link name="Rueda2_link">
+      <collision name="Rueda2_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.002.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.002.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Rueda2_llanta_link">
+      <collision name="Rueda2_llanta_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda2_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Rueda3_link">
+      <collision name="Rueda3_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.003.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda3">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.003.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Rueda3_llanta_link">
+      <collision name="Rueda3_llanta_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda3_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Rueda4_link">
+      <collision name="Rueda4_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.006.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda4">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.006.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Rueda4_llanta_link">
+      <collision name="Rueda4_llanta_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda4_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Rueda5_link">
+      <collision name="Rueda5_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.004.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda5">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.004.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Rueda5_llanta_link">
+      <collision name="Rueda5_llanta_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda5_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Rueda6_link">
+      <collision name="Rueda6_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.005.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.36066" ixy="0.00000" ixz="0.00000" iyy="0.65979" iyz="0.00000" izz="0.36066"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="Rueda6">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.25000"/>
+        <material name="Ruedas"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.005.dae" scale="0.30000 0.30000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Rueda6_llanta_link">
+      <collision name="Rueda6_llanta_collision">
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05688" ixy="0.00000" ixz="0.00000" iyy="0.09375" iyz="0.00000" izz="0.05688"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Rueda6_llanta">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.15000"/>
+        <material name="LLantas"/>
+        <geometry>
+          <cylinder radius="0.25000" length="0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+</robot>
