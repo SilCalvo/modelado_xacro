@@ -19,14 +19,17 @@ Esta carpeta contiene recursos relevantes para el proyecto:
 - [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
 - [`Video ParteA`](data/ParteA.mp4): Video de RViz moviendo las distintas articulaciones de las ruedas y del brazo.
 - [`Video ParteB sin controladores`](data/ParteB.mp4): Video de RViz y Gazebo mostrando el mundo y las imágenes de las cámaras.
+- [`Video ParteB con controladores`](data/Scara2.mp4): Video de RViz y Gazebo mostrando el mundo moviendo el brazo en un intento de coger la caja ( no va las ruedas)
+- [`Link_rosbag`](data/link_rosbag.txt): Link al rosbag con joint_state
 
-- [`Video ParteB con controladores`](data/Scara1.mp4): Video de RViz y Gazebo mostrando el mundo moviendo el brazo en un intento de coger la caja ( no va las ruedas)
+
+
 
 ### Paquetes del proyecto
 
 - **rover_description**: Este paquete contiene la descripción del robot, incluyendo sus partes físicas definidas en Xacro, así como los lanzadores necesarios para cargar el robot en Gazebo.
   
-- **urjc-excavation-world**: Este paquete define el entorno en el que se probará el robot, con un mundo simulado denominado `urjc_excavation_msr`.
+- **urjc-excavation-world**: Este paquete define el entorno en el que se probará el robot, con un mundo simulado denominado `urjc_excavation_msr`. Descargar del git del profesor
 
 - **rover_model_moveit_config**: Este paquete contiene la configuracion de moveit mediante moveit_setup_assistanat.
 
