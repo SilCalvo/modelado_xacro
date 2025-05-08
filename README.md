@@ -204,4 +204,17 @@ Para esta práctica usaremos el mundo en gazebo encontrado en el paquete de este
 
 Para moveit usamos el moveit_setup_assistant el cual solo funcionan en algunos ordenadores debido a una dependencia de librerias y paquetes fallidos.
 
-Tras seguir todos los pasos del video para crear el paquete de moveit y los controladores 
+Tras seguir todos los pasos del video para crear el paquete de moveit y los controladores ya se puede lanzar todo. 
+
+#### Problemas 
+
+1. El nombre del paquete con el robot no se puede llamar `robot_description`.
+2. El nombre del robot en los xacros no se puede llamar `robot`.
+3. Si no funciona el teleoperado se puede hacer publicando directamente en los topics con:
+```bash
+
+ros2 topic pub /rover_base_control/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: 'base_link'}, twist: {linear: {x: 10.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}}"
+
+```
+
+
