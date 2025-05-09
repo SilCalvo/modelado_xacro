@@ -19,7 +19,7 @@ Esta carpeta contiene recursos relevantes para el proyecto:
 - [`Rviz`](data/Rvizz_captura.png): Captura de pantalla de RViz mostrando el movimiento de las articulaciones del brazo.
 - [`Video ParteA`](data/ParteA.mp4): Video de RViz moviendo las distintas articulaciones de las ruedas y del brazo.
 - [`Video ParteB sin controladores`](data/ParteB.mp4): Video de RViz y Gazebo mostrando el mundo y las imágenes de las cámaras.
-- [`Video ParteB con controladores`](data/Scara2.mp4): Video de RViz y Gazebo mostrando el mundo moviendo el brazo en un intento de coger la caja ( no va las ruedas)
+- [`Video ParteB con controladores`](data/Scara3.mp4): Video de RViz y Gazebo mostrando el mundo moviendo el brazo en un intento de coger la caja ( no va las ruedas)
 - [`Link_rosbag`](data/link_rosbag.txt): Link al rosbag con joint_state
 
 
